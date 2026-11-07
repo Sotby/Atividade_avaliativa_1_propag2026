@@ -21,16 +21,18 @@ programa
 	}
 	funcao reservar(inteiro fileira,cadeia assento){
 		inteiro posicao_assento = -1
-		para(inteiro i = 0; i < coluna;i++){
-			se(letras[i] == t.caixa_alta(assento)) posicao_assento = i 
-		}
-		se(posicao_assento != -1){
-			se(assentos[fileira][posicao_assento] != 1){
-				assentos[fileira][posicao_assento] = 1
-			} senao escreva("Assento já reservado! Escolha outro\n")
-		} senao{
-			escreva("Valor do assento inválido!\n")
-		}
+		se(fileira >= 0 e fileira <linha){
+			para(inteiro i = 0; i < coluna;i++){
+				se(letras[i] == t.caixa_alta(assento)) posicao_assento = i 
+			}
+			se(posicao_assento != -1){
+				se(assentos[fileira][posicao_assento] != 1){
+					assentos[fileira][posicao_assento] = 1
+				} senao escreva("Assento já reservado! Escolha outro\n")
+			} senao{
+				escreva("Valor do assento inválido!\n")
+			}			
+		} senao escreva("Valor da fileira inválido!\n")
 	}
 	funcao inicializar(){
 		para(inteiro i = 0; i < linha;i++){
@@ -64,7 +66,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1137; 
+ * @POSICAO-CURSOR = 988; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {assentos, 6, 9, 8};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
